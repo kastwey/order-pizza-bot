@@ -1,0 +1,577 @@
+{
+  "luis_schema_version": "6.0.0",
+  "intents": [
+    {
+      "name": "Accept",
+      "features": []
+    },
+    {
+      "name": "GetMenu",
+      "features": []
+    },
+    {
+      "name": "Greet",
+      "features": []
+    },
+    {
+      "name": "None",
+      "features": []
+    },
+    {
+      "name": "OrderPizza",
+      "features": []
+    },
+    {
+      "name": "OrderStatus",
+      "features": []
+    },
+    {
+      "name": "Reject",
+      "features": []
+    }
+  ],
+  "entities": [],
+  "hierarchicals": [],
+  "composites": [],
+  "closedLists": [
+    {
+      "name": "OrderType",
+      "subLists": [
+        {
+          "canonicalForm": "PickUp",
+          "list": [
+            "recoger",
+            "voy",
+            "recojo"
+          ]
+        },
+        {
+          "canonicalForm": "Delivery",
+          "list": [
+            "domicilio",
+            "traeme",
+            "tráeme",
+            "traer",
+            "tráemela",
+            "trae"
+          ]
+        }
+      ],
+      "roles": []
+    }
+  ],
+  "prebuiltEntities": [
+    {
+      "name": "number",
+      "roles": []
+    }
+  ],
+  "utterances": [
+    {
+      "text": "¡eih!",
+      "intent": "Greet",
+      "entities": []
+    },
+    {
+      "text": "¡hola!",
+      "intent": "Greet",
+      "entities": []
+    },
+    {
+      "text": "¡no!",
+      "intent": "Reject",
+      "entities": []
+    },
+    {
+      "text": "¡saludos!",
+      "intent": "Greet",
+      "entities": []
+    },
+    {
+      "text": "¿cómo estás?",
+      "intent": "Greet",
+      "entities": []
+    },
+    {
+      "text": "¿cómo va eso?",
+      "intent": "OrderStatus",
+      "entities": []
+    },
+    {
+      "text": "¿cómo va mi pizza?",
+      "intent": "OrderStatus",
+      "entities": []
+    },
+    {
+      "text": "¿estás de broma?",
+      "intent": "Reject",
+      "entities": []
+    },
+    {
+      "text": "¿estás loco?",
+      "intent": "Reject",
+      "entities": []
+    },
+    {
+      "text": "¿hola?",
+      "intent": "Greet",
+      "entities": []
+    },
+    {
+      "text": "¿le falta mucho a mi pedido?",
+      "intent": "OrderStatus",
+      "entities": []
+    },
+    {
+      "text": "¿podría pedir una piza a domicilio, por favor?",
+      "intent": "OrderPizza",
+      "entities": []
+    },
+    {
+      "text": "¿podría pedir una pizza a domicilio?",
+      "intent": "OrderPizza",
+      "entities": []
+    },
+    {
+      "text": "¿podría pedir una pizza para recoger, por favor?",
+      "intent": "OrderPizza",
+      "entities": []
+    },
+    {
+      "text": "¿podría pedir una pizza para recoger?",
+      "intent": "OrderPizza",
+      "entities": []
+    },
+    {
+      "text": "¿qué pizzas hay?",
+      "intent": "GetMenu",
+      "entities": []
+    },
+    {
+      "text": "¿qué pizzas tenéis?",
+      "intent": "GetMenu",
+      "entities": []
+    },
+    {
+      "text": "¿qué tal?",
+      "intent": "Greet",
+      "entities": []
+    },
+    {
+      "text": "¿qué te cuentas?",
+      "intent": "Greet",
+      "entities": []
+    },
+    {
+      "text": "buenas",
+      "intent": "Greet",
+      "entities": []
+    },
+    {
+      "text": "buenas noches",
+      "intent": "Greet",
+      "entities": []
+    },
+    {
+      "text": "buenas tardes",
+      "intent": "Greet",
+      "entities": []
+    },
+    {
+      "text": "buenos días",
+      "intent": "Greet",
+      "entities": []
+    },
+    {
+      "text": "carta",
+      "intent": "GetMenu",
+      "entities": []
+    },
+    {
+      "text": "cinco pizzas para recoger",
+      "intent": "OrderPizza",
+      "entities": []
+    },
+    {
+      "text": "claro",
+      "intent": "Accept",
+      "entities": []
+    },
+    {
+      "text": "claro que no",
+      "intent": "Reject",
+      "entities": []
+    },
+    {
+      "text": "cómo lo llevas",
+      "intent": "Greet",
+      "entities": []
+    },
+    {
+      "text": "cómo no",
+      "intent": "Accept",
+      "entities": []
+    },
+    {
+      "text": "cómo va el pedido",
+      "intent": "OrderStatus",
+      "entities": []
+    },
+    {
+      "text": "cómo va eso",
+      "intent": "OrderStatus",
+      "entities": []
+    },
+    {
+      "text": "como va mi pedido",
+      "intent": "OrderStatus",
+      "entities": []
+    },
+    {
+      "text": "cómo va mi pedido",
+      "intent": "OrderStatus",
+      "entities": []
+    },
+    {
+      "text": "cómo va mi piza",
+      "intent": "OrderStatus",
+      "entities": []
+    },
+    {
+      "text": "cómo va mi pizza",
+      "intent": "OrderStatus",
+      "entities": []
+    },
+    {
+      "text": "de acuerdo",
+      "intent": "Accept",
+      "entities": []
+    },
+    {
+      "text": "desde luego",
+      "intent": "Accept",
+      "entities": []
+    },
+    {
+      "text": "dime el menu",
+      "intent": "GetMenu",
+      "entities": []
+    },
+    {
+      "text": "dime el menú",
+      "intent": "GetMenu",
+      "entities": []
+    },
+    {
+      "text": "dime la carta",
+      "intent": "GetMenu",
+      "entities": []
+    },
+    {
+      "text": "eih",
+      "intent": "Greet",
+      "entities": []
+    },
+    {
+      "text": "el menu",
+      "intent": "GetMenu",
+      "entities": []
+    },
+    {
+      "text": "el menú",
+      "intent": "GetMenu",
+      "entities": []
+    },
+    {
+      "text": "estado de mi pedido",
+      "intent": "OrderStatus",
+      "entities": []
+    },
+    {
+      "text": "estado pedido",
+      "intent": "OrderStatus",
+      "entities": []
+    },
+    {
+      "text": "hola caracola",
+      "intent": "Greet",
+      "entities": []
+    },
+    {
+      "text": "la carta",
+      "intent": "GetMenu",
+      "entities": []
+    },
+    {
+      "text": "leeme el menu",
+      "intent": "GetMenu",
+      "entities": []
+    },
+    {
+      "text": "léeme el menu",
+      "intent": "GetMenu",
+      "entities": []
+    },
+    {
+      "text": "léeme el menú",
+      "intent": "GetMenu",
+      "entities": []
+    },
+    {
+      "text": "leeme la carta",
+      "intent": "GetMenu",
+      "entities": []
+    },
+    {
+      "text": "léeme la carta",
+      "intent": "GetMenu",
+      "entities": []
+    },
+    {
+      "text": "me apetece una pizza",
+      "intent": "OrderPizza",
+      "entities": []
+    },
+    {
+      "text": "me apetece una pizza para recoger",
+      "intent": "OrderPizza",
+      "entities": []
+    },
+    {
+      "text": "nada de eso",
+      "intent": "Reject",
+      "entities": []
+    },
+    {
+      "text": "necesito dos pizzas para recoger",
+      "intent": "OrderPizza",
+      "entities": []
+    },
+    {
+      "text": "necesito tres pizzas",
+      "intent": "OrderPizza",
+      "entities": []
+    },
+    {
+      "text": "necesito una pizza a domicilio",
+      "intent": "OrderPizza",
+      "entities": []
+    },
+    {
+      "text": "ni de broma",
+      "intent": "Reject",
+      "entities": []
+    },
+    {
+      "text": "ni de coña",
+      "intent": "Reject",
+      "entities": []
+    },
+    {
+      "text": "no",
+      "intent": "Reject",
+      "entities": []
+    },
+    {
+      "text": "no te enteras",
+      "intent": "Reject",
+      "entities": []
+    },
+    {
+      "text": "para nada",
+      "intent": "Reject",
+      "entities": []
+    },
+    {
+      "text": "pedir pizza a domicilio",
+      "intent": "OrderPizza",
+      "entities": []
+    },
+    {
+      "text": "pedir pizza para recoger",
+      "intent": "OrderPizza",
+      "entities": []
+    },
+    {
+      "text": "perfecto",
+      "intent": "Accept",
+      "entities": []
+    },
+    {
+      "text": "pero qué dices",
+      "intent": "Reject",
+      "entities": []
+    },
+    {
+      "text": "por supuesto",
+      "intent": "Accept",
+      "entities": []
+    },
+    {
+      "text": "por supuesto que no",
+      "intent": "Reject",
+      "entities": []
+    },
+    {
+      "text": "prepárame tres pizzas que voy a por ellas",
+      "intent": "OrderPizza",
+      "entities": []
+    },
+    {
+      "text": "prepárame una pizza y tráemela",
+      "intent": "OrderPizza",
+      "entities": []
+    },
+    {
+      "text": "que pasa",
+      "intent": "Greet",
+      "entities": []
+    },
+    {
+      "text": "qué pasa",
+      "intent": "Greet",
+      "entities": []
+    },
+    {
+      "text": "qué pizas hay",
+      "intent": "GetMenu",
+      "entities": []
+    },
+    {
+      "text": "que pizzas hay",
+      "intent": "GetMenu",
+      "entities": []
+    },
+    {
+      "text": "que pizzas teneis",
+      "intent": "GetMenu",
+      "entities": []
+    },
+    {
+      "text": "qué pizzas tenéis",
+      "intent": "GetMenu",
+      "entities": []
+    },
+    {
+      "text": "que tal",
+      "intent": "Greet",
+      "entities": []
+    },
+    {
+      "text": "qué tal?",
+      "intent": "Greet",
+      "entities": []
+    },
+    {
+      "text": "qué va",
+      "intent": "Reject",
+      "entities": []
+    },
+    {
+      "text": "quiero cuatro pizzas",
+      "intent": "OrderPizza",
+      "entities": []
+    },
+    {
+      "text": "quiero dos pizzas a domicilio",
+      "intent": "OrderPizza",
+      "entities": []
+    },
+    {
+      "text": "quiero pedir tres pizzas",
+      "intent": "OrderPizza",
+      "entities": []
+    },
+    {
+      "text": "quiero pedir una pizza a domicilio",
+      "intent": "OrderPizza",
+      "entities": []
+    },
+    {
+      "text": "quiero pedir una pizza para recoger",
+      "intent": "OrderPizza",
+      "entities": []
+    },
+    {
+      "text": "quiero una pizza",
+      "intent": "OrderPizza",
+      "entities": []
+    },
+    {
+      "text": "quiero una pizza a domicilio",
+      "intent": "OrderPizza",
+      "entities": []
+    },
+    {
+      "text": "saludos",
+      "intent": "Greet",
+      "entities": []
+    },
+    {
+      "text": "saludos terrícola",
+      "intent": "Greet",
+      "entities": []
+    },
+    {
+      "text": "saludos, terrícola",
+      "intent": "Greet",
+      "entities": []
+    },
+    {
+      "text": "seguro",
+      "intent": "Accept",
+      "entities": []
+    },
+    {
+      "text": "si",
+      "intent": "Accept",
+      "entities": []
+    },
+    {
+      "text": "sí",
+      "intent": "Accept",
+      "entities": []
+    },
+    {
+      "text": "tengo hambre",
+      "intent": "OrderPizza",
+      "entities": []
+    },
+    {
+      "text": "trae dos pizzas",
+      "intent": "OrderPizza",
+      "entities": []
+    },
+    {
+      "text": "tráeme tres pizzas",
+      "intent": "OrderPizza",
+      "entities": []
+    },
+    {
+      "text": "vale",
+      "intent": "Accept",
+      "entities": []
+    },
+    {
+      "text": "y tanto",
+      "intent": "Accept",
+      "entities": []
+    },
+    {
+      "text": "y tanto que sí",
+      "intent": "Accept",
+      "entities": []
+    }
+  ],
+  "versionId": "0.1",
+  "name": "OrderPizzaBot",
+  "desc": "Un bot de ejemplo para pedir una pizza",
+  "culture": "es-es",
+  "tokenizerVersion": "1.0.0",
+  "patternAnyEntities": [],
+  "regex_entities": [],
+  "phraselists": [],
+  "regex_features": [],
+  "patterns": [],
+  "settings": []
+}

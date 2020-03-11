@@ -1,0 +1,200 @@
+﻿[
+	{
+		"Id": 1,
+		"Name": "jamón",
+		"Description": "deliciosos taquitos de jamón dulce de la mejor calidad",
+		"Price": 1.5
+	},
+	{
+		"Id": 2,
+		"Name": "champiñones",
+		"Description": "champiñones frescos cocinados al horno",
+		"Price": 1.0
+	},
+	{
+		"Id": 3,
+		"Name": "olivas negras",
+		"Description": "olivas negras, sin hueso",
+		"Price": 0.75
+	},
+	{
+		"Id": 4,
+		"Name": "pasas",
+		"Description": "pasas sin pepitas, dulces y de sabor intenso",
+		"Price": 0.9
+	},
+	{
+		"Id": 5,
+		"Name": "salchicha",
+		"Description": "salchicha cocida de la mejor carne de vacuno",
+		"Price": 1.0
+	},
+	{
+		"Id": 6,
+		"Name": "peperoni",
+		"Description": "el mejor peperoni italiano, picante y sabroso",
+		"Price": 1.75
+	},
+	{
+		"Id": 7,
+		"Name": "salami",
+		"Description": "lonchas de salami ahumado, con un toque de ajo",
+		"Price": 1.5
+	},
+	{
+		"Id": 8,
+		"Name": "piña",
+		"Description": "trozos de piña natural, dulce y jugosa",
+		"Price": 0.75
+	},
+	{
+		"Id": 9,
+		"Name": "huevo duro",
+		"Description": "trocitos de huevo duro, en su punto perfecto de cocción",
+		"Price": 0.5
+	},
+	{
+		"Id": 10,
+		"Name": "huevo frito",
+		"Description": "Un huevo frito recién hecho, crujiente alrededor y con una yema que explotará en tu paladar cuando la muerdas con un sabor maravilloso",
+		"Price": 1.0
+	},
+	{
+		"Id": 11,
+		"Name": "queso de cabra",
+		"Description": "medalones de queso de cabra cremoso e intenso",
+		"Price": 1.5
+	},
+	{
+		"Id": 12,
+		"Name": "mozarella",
+		"Description": "medallones de queso mozarella, que le darán una capa adicional jugosa y deliciosa a tu pizza",
+		"Price": 1.0
+	},
+	{
+		"Id": 13,
+		"Name": "queso emental",
+		"Description": "Delicioso queso emental, que al gratinarse, le dará a tus bocados un crujiente y maravilloso preludio de los increíbles sabores que esconde debajo",
+		"Price": 1.0
+	},
+	{
+		"Id": 14,
+		"Name": "pollo",
+		"Description": "deliciosos trocitos de pechuga de pollo de corral, salpimentado y cocinado a fuego lento",
+		"Price": 1.5
+	},
+	{
+		"Id": 15,
+		"Name": "ternera",
+		"Description": "Jugosa ternera de Girona, hecha a fuego lento para que mantenga todo su sabor. ¡Simplemente deliciosa!",
+		"Price": 3.0
+	},
+	{
+		"Id": 16,
+		"Name": "cordero",
+		"Description": "Jugosos taquitos de tierno cordero, cocinado a fuego lento. ¡Casi se te deshace en la boca!",
+		"Price": 2.5
+	},
+	{
+		"Id": 17,
+		"Name": "maíz",
+		"Description": "Maíz extraído de las mejores mazorcas con el mejor sabor.",
+		"Price": 0.5
+	},
+	{
+		"Id": 18,
+		"Name": "salmón ahumado",
+		"Description": "Nuestro delicioso salmón ahumado, directo desde Noruega",
+		"Price": 2.0
+	},
+	{
+		"Id": 19,
+		"Name": "gambas",
+		"Description": "Gambas de Cádiz, cocidas con el punto justo de sal",
+		"Price": 3.0
+	},
+	{
+		"Id": 20,
+		"Name": "tomate seco",
+		"Description": "Tomate natural, deshidratado al sol y rehidratado con una mezcla deliciosa de albahaca, ajo, pimentón dulce y sal.",
+		"Price": 1.0
+	},
+	{
+		"Id": 21,
+		"Name": "rúcula",
+		"Description": "Rúcula fresca",
+		"Price": 0.75
+	},
+	{
+		"Id": 22,
+		"Name": "piñones",
+		"Description": "Piñones de la mejor calidad, que le darán un sabor única a tus pizzas",
+		"Price": 3.0
+	},
+	{
+		"Id": 23,
+		"Name": "nueces",
+		"Description": "Nueces de Macadamia, troceadas y listas para disfrutar. SAludables y riquísimas",
+		"Price": 1.0
+	},
+	{
+		"Id": 24,
+		"Name": "butifarra",
+		"Description": "Butifarra de pajes, troceada y horneada hasta su justo punto. ¡Irresistible!",
+		"Price": 2.0
+	},
+	{
+		"Id": 25,
+		"Name": "cebolla",
+		"Description": "Cebolla roja picada finamente",
+		"Price": 0.75
+	},
+	{
+		"Id": 26,
+		"Name": "cebolla caramelizada",
+		"Description": "Nuestra cebolla blanca, pochada a fuego lento con haceite de oliva, vinagre y azúcar de la mejor calidad",
+		"Price": 1.0
+	},
+	{
+		"Id": 27,
+		"Name": "tomate en rodajas",
+		"Description": "Nuestros tomates de la huerta, cortados en finas rodajas que darán un sabor campero a todas tus pizzas",
+		"Price": 0.75
+	},
+	{
+		"Id": 28,
+		"Name": "pepinillos",
+		"Description": "Pepinillos en vinagre, crugientes y sabrosos",
+		"Price": 0.5
+	},
+	{
+		"Id": 29,
+		"Name": "nata",
+		"Description": "Nuestra nata cremosa y deliciosa",
+		"Price": 0.5
+	},
+	{
+		"Id": 30,
+		"Name": "alcachofas",
+		"Description": "Nuestras alcachofas frescas y naturales",
+		"Price": 1.0
+	},
+	{
+		"Id": 31,
+		"Name": "bacon",
+		"Description": "tiras crugientes de delicioso bacon hecho a la plancha",
+		"Price": 1.0
+	},
+	{
+		"Id": 32,
+		"Name": "pimiento rojo",
+		"Description": "Pimiento rojo ecológico, ¡delicioso!",
+		"Price": 0.5
+	},
+	{
+		"Id": 33,
+		"Name": "jamón ibérico",
+		"Description": "jamón ibérico de bellota de la mejor calidad. ¡no podrás resistirte!",
+		"Price": 4.0
+	}
+]

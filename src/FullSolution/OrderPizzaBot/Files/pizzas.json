@@ -1,0 +1,213 @@
+﻿[
+	{
+		"Size": 0,
+		"Dough": 0,
+		"Name": "carbonara",
+		"Ingredients": [
+			{
+				"Id": 29,
+				"Name": "nata",
+				"Description": "Nuestra nata cremosa y deliciosa",
+				"Price": 0.5
+			},
+			{
+				"Id": 31,
+				"Name": "bacon",
+				"Description": "tiras crugientes de delicioso bacon hecho a la plancha",
+				"Price": 1.0
+			},
+			{
+				"Id": 9,
+				"Name": "huevo duro",
+				"Description": "trocitos de huevo duro, en su punto perfecto de cocción",
+				"Price": 0.5
+			},
+			{
+				"Id": 25,
+				"Name": "cebolla",
+				"Description": "Cebolla roja picada finamente",
+				"Price": 0.75
+			}
+		]
+	},
+	{
+		"Size": 0,
+		"Dough": 0,
+		"Name": "vegetal",
+		"Ingredients": [
+			{
+				"Id": 25,
+				"Name": "cebolla",
+				"Description": "Cebolla roja picada finamente",
+				"Price": 0.75
+			},
+			{
+				"Id": 30,
+				"Name": "alcachofas",
+				"Description": "Nuestras alcachofas frescas y naturales",
+				"Price": 1.0
+			},
+			{
+				"Id": 21,
+				"Name": "rúcula",
+				"Description": "Rúcula fresca",
+				"Price": 0.75
+			},
+			{
+				"Id": 4,
+				"Name": "pasas",
+				"Description": "pasas sin pepitas, dulces y de sabor intenso",
+				"Price": 0.9
+			},
+			{
+				"Id": 32,
+				"Name": "pimiento rojo",
+				"Description": "Pimiento rojo ecológico, ¡delicioso!",
+				"Price": 0.5
+			},
+			{
+				"Id": 3,
+				"Name": "olivas negras",
+				"Description": "olivas negras, sin hueso",
+				"Price": 0.75
+			}
+		]
+	},
+	{
+		"Size": 0,
+		"Dough": 0,
+		"Name": "pecado carnal",
+		"Ingredients": [
+			{
+				"Id": 1,
+				"Name": "jamón",
+				"Description": "deliciosos taquitos de jamón dulce de la mejor calidad",
+				"Price": 1.5
+			},
+			{
+				"Id": 6,
+				"Name": "peperoni",
+				"Description": "el mejor peperoni italiano, picante y sabroso",
+				"Price": 1.75
+			},
+			{
+				"Id": 14,
+				"Name": "pollo",
+				"Description": "deliciosos trocitos de pechuga de pollo de corral, salpimentado y cocinado a fuego lento",
+				"Price": 1.5
+			},
+			{
+				"Id": 15,
+				"Name": "ternera",
+				"Description": "Jugosa ternera de Girona, hecha a fuego lento para que mantenga todo su sabor. ¡Simplemente deliciosa!",
+				"Price": 3.0
+			}
+		]
+	},
+	{
+		"Size": 0,
+		"Dough": 0,
+		"Name": "marinera",
+		"Ingredients": [
+			{
+				"Id": 19,
+				"Name": "gambas",
+				"Description": "Gambas de Cádiz, cocidas con el punto justo de sal",
+				"Price": 3.0
+			},
+			{
+				"Id": 3,
+				"Name": "olivas negras",
+				"Description": "olivas negras, sin hueso",
+				"Price": 0.75
+			},
+			{
+				"Id": 18,
+				"Name": "salmón ahumado",
+				"Description": "Nuestro delicioso salmón ahumado, directo desde Noruega",
+				"Price": 2.0
+			}
+		]
+	},
+	{
+		"Size": 0,
+		"Dough": 0,
+		"Name": "champiñones",
+		"Ingredients": [
+			{
+				"Id": 25,
+				"Name": "cebolla",
+				"Description": "Cebolla roja picada finamente",
+				"Price": 0.75
+			},
+			{
+				"Id": 1,
+				"Name": "jamón",
+				"Description": "deliciosos taquitos de jamón dulce de la mejor calidad",
+				"Price": 1.5
+			}
+		]
+	},
+	{
+		"Size": 0,
+		"Dough": 0,
+		"Name": "cabra",
+		"Ingredients": [
+			{
+				"Id": 11,
+				"Name": "queso de cabra",
+				"Description": "medalones de queso de cabra cremoso e intenso",
+				"Price": 1.5
+			},
+			{
+				"Id": 26,
+				"Name": "cebolla caramelizada",
+				"Description": "Nuestra cebolla blanca, pochada a fuego lento con haceite de oliva, vinagre y azúcar de la mejor calidad",
+				"Price": 1.0
+			},
+			{
+				"Id": 20,
+				"Name": "tomate seco",
+				"Description": "Tomate natural, deshidratado al sol y rehidratado con una mezcla deliciosa de albahaca, ajo, pimentón dulce y sal.",
+				"Price": 1.0
+			}
+		]
+	},
+	{
+		"Size": 0,
+		"Dough": 0,
+		"Name": "campesina",
+		"Ingredients": [
+			{
+				"Id": 33,
+				"Name": "jamón ibérico",
+				"Description": "jamón ibérico de bellota de la mejor calidad. ¡no podrás resistirte!",
+				"Price": 4.0
+			},
+			{
+				"Id": 21,
+				"Name": "rúcula",
+				"Description": "Rúcula fresca",
+				"Price": 0.75
+			},
+			{
+				"Id": 25,
+				"Name": "cebolla",
+				"Description": "Cebolla roja picada finamente",
+				"Price": 0.75
+			},
+			{
+				"Id": 4,
+				"Name": "pasas",
+				"Description": "pasas sin pepitas, dulces y de sabor intenso",
+				"Price": 0.9
+			},
+			{
+				"Id": 22,
+				"Name": "piñones",
+				"Description": "Piñones de la mejor calidad, que le darán un sabor única a tus pizzas",
+				"Price": 3.0
+			}
+		]
+	}
+]
