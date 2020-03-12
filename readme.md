@@ -14,6 +14,7 @@ El objetivo de este taller es que  podáis aprender los fundamentos de un  bot, 
 - La última versión de la herramienta Bot Framework Emulator V4:
  * [Bot Framework Emulator para Windows](https://github.com/microsoft/BotFramework-Emulator/releases/download/v4.7.0/BotFramework-Emulator-4.7.0-windows-setup.exe)
  * [Bot Framework Emulator para Mac](https://github.com/microsoft/BotFramework-Emulator/releases/download/v4.7.0/BotFramework-Emulator-4.7.0-mac.dmg)
+* [Bot framework emulator para Linux](https://github.com/microsoft/BotFramework-Emulator/releases/download/v4.7.0/BotFramework-Emulator-4.7.0-linux-x86_64.AppImage)
 - Una cuenta de estudiante de Azure (la dirección de correo de la UB os debería valer para el registro): [Register in azure for students](https://azure.microsoft.com/es-es/free/students/).
 - Git:
  * [Git for Windows](https://github.com/git-for-windows/git/releases/download/v2.25.1.windows.1/Git-2.25.1-64-bit.exe)
