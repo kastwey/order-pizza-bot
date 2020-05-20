@@ -8,9 +8,10 @@ El objetivo de este taller es que  podáis aprender los fundamentos de un  bot, 
 
 ## 2. Requisitos
 
-- La última versión de uno de estos dos productos:
- * [Microsoft Visual Studio 2019 community edition para Windows](https://visualstudio.microsoft.com/es/thank-you-downloading-visual-studio/?sku=Community&rel=16#)
- * [Visual Studio Community Edition para Mac](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio-mac/?sku=communitymac&rel=16).
+En estas instrucciones vamos a ofrecer dos alternativas: utilizar Visual Studio Code o directamente la consola para compilar y ejecutar la aplicación. Utilizad la que consideréis más cómoda. Si por cualquier razón Visual Studio Code no os funciona, podréis utilizar la consola sin problema.
+
+- instalad el [SDK de .Net Core 3.1 para vuestro sistema operativo](https://dotnet.microsoft.com/download/dotnet-core/3.1). Recordad, elegid "build apps, SDK", ya que  "Run apps - Runtime" solo os permitirá ejecutar, pero necesitamos compilar.
+- OPcional (pero os puede facilitar el desarrollo). [Descargad Visual Studio Code para vuestro sistema operativo](https://code.visualstudio.com/download). Si váis a descargar VS Code para Windows, podéis elegir la instalación de sistema o la de usuario, es indiferente.
 - La última versión de la herramienta Bot Framework Emulator V4:
  * [Bot Framework Emulator para Windows](https://github.com/microsoft/BotFramework-Emulator/releases/download/v4.7.0/BotFramework-Emulator-4.7.0-windows-setup.exe)
  * [Bot Framework Emulator para Mac](https://github.com/microsoft/BotFramework-Emulator/releases/download/v4.7.0/BotFramework-Emulator-4.7.0-mac.dmg)
@@ -23,39 +24,20 @@ El objetivo de este taller es que  podáis aprender los fundamentos de un  bot, 
  * [Node.JS para Windows](https://nodejs.org/dist/v12.16.1/node-v12.16.1-x64.msi)
  * [Node.JS para MAC](https://nodejs.org/dist/v12.16.1/node-v12.16.1.pkg)
 
-### 2.1. Actualizando Visual Studio
+### 2.1. Instalando Visual Studio Code (opcional)
 
-Si ya teníais Visual Studio 2019 instalado, comprobad que 
-tenéis la última versión .
-Para ello, bajaos el instalador de la sección anterior y ejecutadlo. Si os pide actualizar, hacedlo, ya que necesitamos la última versión que contenga el SDK de .Net Core 3.1.
+Visual Studio Code es una herramienta multiplataforma y multilenguaje, que os puede facilitar mucho el desarrollo de vuestro código. Dado que no existe Visual Studio para Linux, esta herramienta nos servirá para seguir todos los pasos de este taller.
+Si preferís usar directamente la consola, no hay problema ;)
 
-Si ya tenéis la versión 16.4 o superior de Visual Studio y no queréis actualizar, comprobad que tenéis instalado el SDK de .Net Core 3.1:
+1. Ejecutad el archivo de instalación para vuestro sistema operativo. Como hay tres sistemas distintos, no entraremos aquí en el detalle de la instalación. Basta decir que el instalador no tiene nada de particular. Solo os recomiedno que marquéis las opciones que os aparecen, para permitir abrir archivos soportados por el editor y añadir code a la variable path para poder ejecutarlo desde cualquier parte usando la terminal.
+2. Una vez finalice la instalación, abrid el programa.
+3. Si tenéis windows y el subsistema de Linux funcionando con alguna distribución, os pedirá si queréis instalar la extensión WSL para ejecutar code desde Linux directamente. Aceptad e instalar la extensión.
+4. íos al marketplace de extensiones (Control o CMD +  shift + x). Cuando escribo control o cmd, es porque en Mac deberéis utilizar CMD en lugar de Control. Por tanto, en Windows y Linux será Control + Shift + X, y en MAC Cmd + Shift + X. Así con todos los comandos que utilicen la tecla Control.
+5. En el cuadro de búsqueda, escribid "c#".
+6. Os aparecerá la extensión c#, y en el detalle, veréis que es para ejecutar aplicaciones .Net Core. Instaladla.
+7. Una vez instalada, ya estaréis listos para ejecutar el proyecto desde Visual Studio Code. **¡Importante!** ¡Recordad que instalar el SDK de .Net Core 3.1 es obligatorio! Si no, no podr'eis compilar ni depurar desde Visual Studio Code.
 
-Desde la consola cmd:
-```bash
-C:\>dotnet --info
-[...]
-.NET Core SDKs installed:
-  2.1.701 [C:\Program Files\dotnet\sdk]
-  2.2.301 [C:\Program Files\dotnet\sdk]
-  3.1.101 [C:\Program Files\dotnet\sdk]
-```
-
-Si no os aparece una versión 3.1.x, [podéis descargaros el SDK de .Net Core 3.1 desde aquí](https://dotnet.microsoft.com/download/dotnet-core/3.1) e instalarlo, ya que es compatible desde la versión 16.4 de Visual Studio. Recordad elegir la versión correcta para vuestro sistema operativo.
-
-### 2.2. Configurando Visual Studio
-
-Cuando ejecutéis el instalador por primera vez, os saldrá la pantalla de configuración. En la pestaña carga de trabajo (o workload, si os aparece en inglés), marcad al menos lo siguiente (yo os recomiendo que si queréis cacharrear con el entorno y sus posibilidades marquéis más cosas ;) ):
-* Desarrollo de Asp.Net y Web.
-* Desarrollo multiplataforma de .Net Core
-
-En la pestaña de idiomas, aseguraos de que el idioma Inglés está marcado, ya que es el idioma que utilizaremos para las instrucciones.
-Una vez instalado, abrid Visual Studio. Si la interfaz os aparece en español, id a herramientas > Opciones, marcad la pestaña "Configuración internacional" y elegid el idioma Inglés. Si este idioma no os aparece ,aseguraos que está marcado en el instalador. Podéis volver a ejecutarlo, pulsad en Modificar y marcarlo.
-
-En windows, para acabar de configurarlo, vamos a elegir el esquema de teclas rápidas que tendrá nuestro Visual Studio. Para ello, nos iremos a Tools > Options > Keyboard. En esta pestaña, elegiremos como esquema Visual C# 2005 y pulsaremos en "OK"..
-Como yo no puedo usar ratón, soy el rey de las teclas rápidas, así que lo que os explique en el taller será siempre utilizando teclas en lugar de ratón. Si esto lo tomáis por costumbre cuando aprendáis un entorno nuevo, os manejaréis por él con una rapidez inusitada ;).
-
-### 2.3. Descargando el repositorio
+### 2.2. Descargando el repositorio
 
 Desde la consola cmd (o terminal de Mac), ejecutad:
 
@@ -69,6 +51,11 @@ Esto os descargará la última versión del repositorio. Aseguraos de que estamo
 c:\>git checkout master
 Already on 'master'                                                                                                     
 Your branch is up to date with 'origin/master'.                                                                        
+```
+
+Si ya tenéis el repositorio y queréis actualizarlo:
+```bash
+C:\> git pull
 ```
 
 ## 3. Estructura del repositorio
@@ -88,6 +75,7 @@ Dentro del repositorio, podréis encontrar la carpeta src, con todo el código f
 Cada una de estas carpetas contiene un paso en la construcción de nuestro bot: desde la primera en la que tenemos un simple bot que repite lo que decimos, hasta el paso 8, en el que tenemos un bot que nos permitirá pedir pizzas predefinidas y personalizadas.
 
 En la carpeta "FullSolution" está todo el código, incluyendo la característica de desbloquear un paso de un diálogo cuando se han producido demasiados reintentos.
+
 ## 4. Empezando a trabajar
 
 En este taller, recorreremos todos los pasos mencionados anteriormente, en los que observaremos cómo se van añadiendo funcionalidades a nuestro BOT.
@@ -96,8 +84,9 @@ En este taller, recorreremos todos los pasos mencionados anteriormente, en los q
 
 Este es el bot mudo. NO hace nada (por ahora)
 
-* Id al explorador de soluciones (ctrl + w, s) y 
-navegad hasta OrderPizzaBot > Bots > OrderPizzaBot.cs
+* Si usáis Visual Studio Code, pulsad en File / Open Folder, y abrid la carpeta del paso 1: <repo dir>/src/00-TheMuteBot/OrderPizzaBot.
+* Si de lo contrario vais a usar la consola, abrid la carpeta en vuestro explorador de archivos, y también en vuestra línea de comandos: cd <repo dir>/src/00-TheMuteBot/OrderPizzaBot.
+* navegad hasta Bots/OrderPizzaBot.cs y abridlo, o bien con Visual Studio code (se os abrirá el editor de código), o bien con cualquier editor de texto instalado en vuestro sistema.
 * Bajad hasta el método
  ```csharp
 protected override async Task OnMessageActivityAsync(ITurnContext<IMessageActivity> turnContext, CancellationToken cancellationToken)
@@ -108,10 +97,25 @@ protected override async Task OnMessageActivityAsync(ITurnContext<IMessageActivi
 var replyText = $"¡Eco eco! {turnContext.Activity.Text}";
 			await turnContext.SendActivityAsync(MessageFactory.Text(replyText, replyText), cancellationToken);
  ```
- Compilad, (F6), y levantad el bot (F5). Os aparecerá una página que os dirá que os podéis conectar al bot. Copiad esa dirección.
+
+* Desde VS Code:
+ * pulsad f5. Esto debería ejecutar directamente la aplicación si no habéis cometido errores ;) y se debería mostrar la página web con la intro del bot. Si hay errores, en la lista de problemas (control / cmd + shift + m), veréis los errores que ha devuelto el compilador.
+* Si váis a usar la consola:
+ * una vez en la carpeta mencionada más arriba, ejecutad:
+```bash
+dotnet build
+dotnet run
+```
+ * Ahora, se os debería mostrar en la consola algo como esto:
+```bash
+Now listening on: http://localhost:3978                                                                           
+```
+ * Abrid esa web en vuestro explorador favorito.
+
+Una vez en la web, veréis un texto diciendo que os podéis conectar al bot. Copiad esa dirección.
 * Abrid el "Bot Framework Emulator", pulsad en File > Open bot, y pegad la dirección que habéis copiado en el paso anterior.
 * Pulsad en conectar, y veréis que tenéis un cuadro para escribir.
- Cuando le escribáis algo al BOT, este os contestará con Eco eco, y lo que le digáis. Podéis parar el proyecto (shift + f%), cambiar algo en la cadena de respuesta, compilar, volver a ejecutar, y ver cómo el bot contesta ahora de forma diferente.
+ Cuando le escribáis algo al BOT, este os contestará con Eco eco, y lo que le digáis. Podéis parar el proyecto (Shift o Cmd + f5 desde VS Code, o control + c desde consola), cambiar algo en la cadena de respuesta, compilar, volver a ejecutar, y ver cómo el bot contesta ahora de forma diferente.
 
 ### 4.2. Trabajando con Luis.
 
@@ -296,10 +300,12 @@ Ha llegado el momento de incluir luis en nuestro bot. Para ello, utilizaremos la
 
 Los ficheros con el código los tenéis en la carpeta workshop-files, con una subcarpeta por cada caso.
 
-* Cread una nueva carpeta dentro del proyecto llamada "Dialogs".
-* Dentro de la carpeta, cread una nueva clase llamada "MainDialog".
+* Cread una nueva carpeta dentro del proyecto llamada "Dialogs":
+* Dentro de la carpeta, cread una nueva clase llamada "MainDialog":
+ * Desde VS Code: botón derecho sobre la carpeta recién creada, new file. Como nombre: MainDialog.cs
+ * Desde vuestro explorador de archivos, cread un nuevo fichero de texto, y llamadlo MainDialog.cs
 * Copiad el contenido del fichero workshop-files\02-LuisIntents\MainDialog.txt en esa clase.
-* Añadid una segunda clase en la raíz del proyecto (no de la solución) llamada OrderPizzaRecognizer, y pegad el contenido dle archivo OrderPizzaRecognizer.txt.
+* Añadid una segunda clase en la raíz del proyecto llamada OrderPizzaRecognizer, y pegad el contenido del archivo OrderPizzaRecognizer.txt.
 * Abrid el fichero startup.cs, y sustituidlo por el contenido del archivo startup.txt
 * Abrid el fichero bots > OrderPizzaBot.cs y sustituid el contenido de ese fichero por el del fichero OrderPizzaBot.txt
 * Ahora, tendremos que instalar la herramienta luisgen (por lo que en los requisitos os pedí que instaláseis node.js). En la consola, ejecutad:
@@ -322,7 +328,25 @@ C:\proyectos\order-pizza-bot\src\02-LuisIntents\OrderPizzaBot\CognitiveModels>lu
 Generating file OrderPizza.cs that contains class OrderPizzaBot.OrderPizza.
  ```
 
-¡Ya tendremos todo lo necesario para ejecutar nuestra aplicación! Pulsad f6 para compilar, y f5 para levantar el bot.
+Por último, tendremos que modificar el fichero appsettings.json (esto tendremos que hacerlo en todos los siguientes pasos, ya que las claves de la aplicación de Luis no están en el repositorio, pues cada uno de vosotros tendrá claves diferentes asociadas a vuestra aplicación.
+
+* Abrid el fichero appsettings.json.
+* Como veis, es un json normal y corriente. Buscad las claves LuisAPIKey y LuisAppId, y rellenar los valores con los que guardásteis anteriormente desde el portal de Azure y desde el portal de Luis.
+* Guardad el fichero.
+
+
+¡Ya tendremos todo lo necesario para ejecutar nuestra aplicación! Ejecutad el proyecto (igual que hicimos en el paso anterior dependiendo de si usáis VS Code o consola):
+* VS Code:
+ * f5.
+* Consola:
+ * Ejecutad
+```bash
+dotnet build
+dotnet run
+```
+ * copiad la dirección que aparece en la consola con el texto: "listening on ...".
+ * Abrid esa web con vuestro navegador favorito.
+
 Conectaos con Bot Framework y ejecutad las intenciones que queráis. El bot os responderá con la intención que cree haber interpretado, y la confianza en esa decisión.
 
 ### 4.4. Nuestro primer diálogo en cascada
@@ -333,15 +357,13 @@ Este tipo de diálogo consta de varios pasos, que se van sucediendo de manera se
 
 Partiendo del bot mudo que hemos modificado para añadir luis, sigamos adelante:
 
-* abre el fichero Bots > OrderPizzaBot.cs y sustituye su contenido por el fichero que se encuentra en los archivos del workshop (workshop-files), en la carpeta "03-FirstWaterfallDialog", con el nombre OrderPizzaBot.txt
-* Dentro de la carpeta Dialogs, crea una nueva clase llamada OrderPizzaDialog.
-* Abre el fichero OrderPizzaDialog.cs recién creado, y sustituye su contenido por el del archivo OrderPizzaDialog.txt.
-* Ahora, abre el fichero MainDialog.cs, y sustituye su contenido por el del archivo del workshop MainDialog.txt
-* Crea una nueva carpeta llamada Entities, y crea tres clases: Enums y OrderInfo, sustituyendo su contenido por su contrapartida txt dentro de los ficheros del workshop.
-* Crea una carpeta llamada Extensions, y dentro, una clase llamada EnumExtensions, sustituyendo su contenido por el fichero EnumExtensions.txt.
-* Abre el fichero Startup.cs, y sustituye el contenido por el del fichero Startup.txt.
-
-Compila con f6 y ejecuta con F5.
+* Abrid el fichero Bots > OrderPizzaBot.cs y sustituid su contenido por el fichero que se encuentra en los archivos del workshop (workshop-files), en la carpeta "03-FirstWaterfallDialog", con el nombre OrderPizzaBot.txt
+* Dentro de la carpeta Dialogs, cread una nueva clase llamada OrderPizzaDialog. Recordad, el fichero se debe poner siempre con la extensión .cs (CSharp).
+* Abrid el fichero OrderPizzaDialog.cs recién creado, y sustituid su contenido por el del archivo OrderPizzaDialog.txt.
+* Ahora, abrid el fichero MainDialog.cs, y sustituid su contenido por el del archivo del workshop MainDialog.txt
+* Cread una nueva carpeta llamada Entities, y cread dos clases: Enums.cs  y OrderInfo.cs, sustituyendo su contenido por su contrapartida txt dentro de los ficheros del workshop.
+* Cread una carpeta llamada Extensions, y dentro, una clase llamada EnumExtensions, sustituyendo su contenido por el fichero EnumExtensions.txt.
+* Abrid el fichero Startup.cs, y sustituid el contenido por el del fichero Startup.txt.
 
 Ahora, veréis que, si le pedimos una pizza con números, lo detectará y nos pedirá confirmación. Si le falta alguna entidad, nos la pedirá antes de confirmar.
 También podremos preguntarle por alguna de las otras opciones que le pedimos en el intent.
