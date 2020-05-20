@@ -84,7 +84,7 @@ En este taller, recorreremos todos los pasos mencionados anteriormente, en los q
 
 Este es el bot mudo. NO hace nada (por ahora)
 
-* Si usáis Visual Studio Code, pulsad en File / Open Folder, y abrid la carpeta del paso 1: <repo dir>/src/00-TheMuteBot/OrderPizzaBot.
+* Si usáis Visual Studio Code, pulsad en File / Open Folder (control + k, control + o), y abrid la carpeta del paso 1: <repo dir>/src/00-TheMuteBot/OrderPizzaBot.
 * Si de lo contrario vais a usar la consola, abrid la carpeta en vuestro explorador de archivos, y también en vuestra línea de comandos: cd <repo dir>/src/00-TheMuteBot/OrderPizzaBot.
 * navegad hasta Bots/OrderPizzaBot.cs y abridlo, o bien con Visual Studio code (se os abrirá el editor de código), o bien con cualquier editor de texto instalado en vuestro sistema.
 * Bajad hasta el método
@@ -308,6 +308,8 @@ Los ficheros con el código los tenéis en la carpeta workshop-files, con una su
 * Añadid una segunda clase en la raíz del proyecto llamada OrderPizzaRecognizer, y pegad el contenido del archivo OrderPizzaRecognizer.txt.
 * Abrid el fichero startup.cs, y sustituidlo por el contenido del archivo startup.txt
 * Abrid el fichero bots > OrderPizzaBot.cs y sustituid el contenido de ese fichero por el del fichero OrderPizzaBot.txt
+* Cread un nuevo fichero en la raíz del proyecto llamado appsettings.json y Copiad el contenido del fichero  appsettings.txt.
+
 * Ahora, tendremos que instalar la herramienta luisgen (por lo que en los requisitos os pedí que instaláseis node.js). En la consola, ejecutad:
 
 ```bash
