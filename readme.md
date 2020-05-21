@@ -251,7 +251,7 @@ Como declaraciones, escribid todo aquello que consideréis que puede ser una neg
 
 #### 4.2.5. Accept
 
-Al contrario que Reject, esta intención servirá para aceptar una acción. POdríamos escribir como declaraciones: sí, si, claro, por supuesto, de acuerdo, ETC.
+Al contrario que Reject, esta intención servirá para aceptar una acción. Podríamos escribir como declaraciones: sí, si, claro, por supuesto, de acuerdo, ETC.
 
 
 #### 4.2.6. GetMenu
@@ -346,8 +346,7 @@ Por último, tendremos que modificar el fichero appsettings.json (esto tendremos
 dotnet build
 dotnet run
 ```
- * copiad la dirección que aparece en la consola con el texto: "listening on ...".
- * Abrid esa web con vuestro navegador favorito.
+ * La URL de inicio siempre es la misma, así que en realidad no tenéis que abrir la web cada vez que ejecutéis el bot al haber cambiado algo. Ya sabéis que la URL del bot (la que acaba por message) es la misma, así que solo tenéis que recargar el bot en vuestro emulador para que la conversación se inicie de nuevo con los cambios que hayáis hecho.
 
 Conectaos con Bot Framework y ejecutad las intenciones que queráis. El bot os responderá con la intención que cree haber interpretado, y la confianza en esa decisión.
 
@@ -355,7 +354,7 @@ Conectaos con Bot Framework y ejecutad las intenciones que queráis. El bot os r
 
 Ahora, vamos a crear nuestro primer diálogo en cascada.
 
-Este tipo de diálogo consta de varios pasos, que se van sucediendo de manera secuencial. En esta evolución del bot, vamos a crear un diálogo de pasos para gestionar el menú principal, y otro para gestionar el número de pizzas y el tamaño.
+Este tipo de diálogo consta de varios pasos, que se van sucediendo de manera secuencial. En esta evolución del bot, vamos a crear un diálogo de pasos para gestionar el menú principal, y otro para gestionar el número de pizzas y el tipo de pedido.
 
 Partiendo del bot mudo que hemos modificado para añadir luis, sigamos adelante:
 
@@ -369,3 +368,169 @@ Partiendo del bot mudo que hemos modificado para añadir luis, sigamos adelante:
 
 Ahora, veréis que, si le pedimos una pizza con números, lo detectará y nos pedirá confirmación. Si le falta alguna entidad, nos la pedirá antes de confirmar.
 También podremos preguntarle por alguna de las otras opciones que le pedimos en el intent.
+
+### 4.5. Añadiendo interrupciones a nuestro bot
+
+Hay bots llamados "bots tercos". Estos son aquellos que siempre te llevan por el mismo camino, le digas lo que le digas, hagas lo que hagas. Si le has dicho que quieres información sobre un contacto, luego no hay manera de sacarlo de ahí.
+Para esto se diseñaron las interrupciones en el flujo de un diálogo.
+
+En este paso vamos a añadir un par de interrupciones a nuestro diálogo: una cuando digamos ayuda o pongamos un signo de interrogación, y otro cuando le digamos cancelar.
+En este ejemplo vamos a utilizar palabras literales y comparaciones con lo recibido en el mensaje del bot (ayuda y cancelar), pero podríamos basarnos también en intents. De hecho, os animo a que lo probéis por vuestra cuenta, creando intents para ayuda y para cancelar, y haciendo que la intención de la interrupción también se extraiga de Luis, no de comparaciones literales.
+
+* Dentro de la carpeta Dialogs, cread un fichero llamado DialogBase.cs, que contendrá nuestra nueva clase llamada DialogBase. Esta clase será, a partir de ahora, la base de todos nuestros diálogos.
+* Pegad el contenido del fichero DialogBase.txt de la carpeta del paso 4, dentro de "workshop-files".
+* Abrid, dentro de Dialogs, el fichero MainDialog.cs, y cambiad la línea 14:
+ * Pasa de ser:
+```csharp
+	public sealed class MainDialog : ComponentDialog
+```
+ * a:
+```csharp
+	public sealed class MainDialog : DialogBase
+```
+* Haced lo mismo en el fichero OrderPizzaDialog.cs. Cambiad la línea 16:
+ * Pasa de ser:
+```csharp
+	public class OrderPizzaDialog : ComponentDialog
+```
+ * a:
+```csharp
+	public class OrderPizzaDialog : DialogBase
+```
+* Cambiad, en la línea 108, el mensaje que daremos cuando elijamos el tipo de pizza y el tipo de pedido. Ahora dirá:
+```csharp
+			var endMsg = "¡Estupendo! ¡Por ahora esto es todo! ¡Vamos al siguiente paso del taller! ¡Pero eh! ¡Ya tenemos el número de pizzas y el tipo de pedido! ¡Y además, ya sabemos cómo salir del diálogo o pedir ayuda en cualquier momento!";
+```
+
+
+¡Y ya hemos completado otro paso! Como podéis comprobar si ejecutáis el proyecto (ya no os pongo los pasos en función del entorno, que ya os lo sabéis ;) ), veréis cómo en cualquier momento, aunque os esté preguntando por el número de pizzas o si queréis recogerlas o que os las traigan a casa, podéis pedir ayuda (en cuyo caso se os dará un mensaje de ayuda y se os volverá a preguntar por el diálogo anterior), o si escribís "Cancelar", el bot se iniciará desde cero, olvidándose de lo dicho hasta el momento.
+
+
+### 4.6. Mejorando las confirmaciones
+
+Hasta ahora, para que nuestro bot contestara a preguntas cerradas de sí o no, utilizábamos un diálogo predefinido de confirmación... pero... ¿Y si usamos intents?
+Ahora ya entendéis para qué creamos en el [paso 4.2.5](#425-Accept) el intent para aceptar, y en el [paso 4.2.6](#426-Reject), el intent para rechazar una acción.
+Ahora utilizaremos esos intents para cambiar ese diálogo, de modo que cuando queramos aceptar algo, no solo valga el "sí", sino también cosas como: "claro", "por supuesto", "de acuerdo".
+
+* Abrid el fichero "Dialogs/DialogBase.cs".
+* Antes del constructor (línea 20), añadid una variable que va a almacenar nuestro objeto reconocedor de Luis:
+```csharp
+		private readonly OrderPizzaRecognizer _recognizer;
+```
+* Reemplazad el constructor "protected" de la clase:
+ * Pasa de:
+```csharp
+		protected DialogBase(string id)
+			: base(id)
+		{
+		}
+```
+* a:
+```csharp
+		protected DialogBase(string id, OrderPizzaRecognizer recognizer)
+ 			: base(id)
+ 		{
+			_recognizer = recognizer;
+		}
+```
+* Después del cierre del método "InterruptAsync", alrededor de la línea 64, añadid un nuevo método, que se llamará "ValidateConfirmation", y tendrá el siguiente código:
+```csharp
+		protected async Task<bool> ValidateConfirmation(PromptValidatorContext<bool> validatorContext, CancellationToken cancellationToken)
+		{
+			var result = await _recognizer.RecognizeAsync<OrderPizza>(validatorContext.Context, cancellationToken);
+			var intent = result.TopIntent();
+			if (intent.intent == OrderPizza.Intent.Accept || intent.intent == OrderPizza.Intent.Reject)
+			{
+				validatorContext.Recognized.Succeeded = true;
+				validatorContext.Recognized.Value = intent.intent == OrderPizza.Intent.Accept;
+			}
+			return validatorContext.Recognized.Succeeded;
+		}
+```
+* Abrid el fichero "Dialogs/OrderPizzaDialog.cs".
+* En la línea 23, cambiad el constructor y la llamada a la base, para que reciba y envíe a dicha clase base el nuevo parámetro "recognizer" que la base necesita:
+ * Pasa de:
+```csharp
+		public OrderPizzaDialog(UserState userState)
+			: base(nameof(OrderPizzaDialog))
+```
+ * a:
+```csharp
+		public OrderPizzaDialog(UserState userState, OrderPizzaRecognizer recognizer)
+			: base(nameof(OrderPizzaDialog), recognizer)
+```
+* En la línea 31, cambiad el diálogo de confirmación, para pasarle una función de validación (que será la nueva que añadimos en el diálogo base):
+ * Pasa de:
+```csharp
+			AddDialog(new ConfirmPrompt(nameof(ConfirmPrompt), null, "es"));
+```
+ * a:
+```csharp
+			AddDialog(new ConfirmPrompt(nameof(ConfirmPrompt), ValidateConfirmation, "es"));
+```
+* Abrid el fichero "Dialogs/MainDialog.cs".
+* En la línea 23, cambiad la llamada al constructor de la clase base:
+ * pasa de ser:
+```csharp
+			: base(nameof(MainDialog))
+```
+ * a:
+```csharp
+			: base(nameof(MainDialog), recognizer)
+```
+* En la línea 30, cambiad la adición del diálogo "OrderPizzaBot", que ahora también recibirá el parámetro recognizer para que se lo pueda pasar a su clase base (DialogBase), que lo necesita.
+ * Pasa de:
+```csharp
+			AddDialog(new OrderPizzaDialog(userState));
+```
+ * a:
+```csharp
+			AddDialog(new OrderPizzaDialog(userState, _recognizer));
+```
+
+
+¡Y ya lo tenemos! Probad ahora, cuando os pregunte si el número de pizzas y el tipo de pedido es el correcto, a decirle "claro" en lugar de sí. Os lo debería aceptar igualmente.
+
+
+### 4.7. Añadiendo pizzas predefinidas
+
+En este paso vamos a añadir bastante código. Vamos a introducir toda la lógica de negocio para el diálogo de elección de pizzas predefinidas. ASí, una vez elegidos el número de pizzas y el tamaño, nuestro bot será capaz de ir pizza a pizza según ese número, preguntándonos qué tipo de pizza queremos:
+
+* Cread un nuevo fichero llamado IPizzaRepository.cs en una nueva ruta dentro de nuestro proyecto: Contracts/Repositories/IPizzaRepository.cs. Por tanto, deberéis crear la carpeta "Contracts", dentro la carpeta "Repositories", y dentro, el fichero IPizzaRepository.cs.
+* Rellenad esa interfaz con el contenido del fichero IPizzaRepository.txt de los ficheros del taller correspondientes a este paso: "06-PredefinedPizzas".
+* Dentro de la carpeta "Dialogs", añadid un nuevo fichero: "PizzaSelectionDialog.cs", y rellenadlo con el contenido del fichero "PizzaSelectionDialog.txt" de los ficheros del taller.
+* En la raíz del proyecto, cread tres carpetas: "Files", "Helpers" y "Repositories".
+* Dentro de la carpeta "Entities", cread el fichero "Ingredient.cs", y rellenadlo con el fichero "Ingredient.txt" de los archivos del taller.
+* Dentro de la carpeta "Entities", cread otro fichero llamado "Pizza.cs", y rellenadlo con el contenido de "Pizza.txt".
+* Dentro de la carpeta Extensions, cread otro fichero llamado "ListExtensions.cs", y rellenadlo con el contenido del fichero "ListExtensions.txt".
+* Dentro de la carpeta "Extensions", cread otro fichero llamado "PizzaExtensions.cs", y rellenadlo con el fichero "PizzaExtensions.txt".
+* Dentro de la carpeta "Files", copiad el fichero llamado "pizzas.json".
+* Dentro de la carpeta "Helpers", cread un nuevo fichero llamado "MenuHelper.cs", y rellenadlo con el contenido del fichero "MenuHelper.txt".
+* Dentro de la carpeta "Repositories", cread un nuevo fichero llamado "PizzaRepository.cs", y rellenadlo con el contenido del archivo "PizzaRepository.txt".
+* Sustituid el contenido del fichero "Bots/OrderPizzaBot.cs" por el contenido de OrderPizzaBot.txt".
+* Sustituid el contenido del fichero "Dialogs/DialogBase.cs" por el contenido de DialogBase.txt.
+* Sustituid el contenido del fichero "Dialogs/MainDialog.cs" por el contenido de MainDialog.txt.
+* Sustituid el contenido del fichero "Dialogs/OrderPizzaDialog.cs" por el contenido de OrderPizzaDialog.txt.
+* Sustituid el contenido del fichero "Entities/Enums.cs" por el contenido de Enums.txt.
+* Sustituid el contenido del fichero "Entities/OrderInfo.cs" por el contenido de OrderInfo.txt.
+* Sustituid el contenido del fichero "Extensions/EnumExtensions.cs" por el contenido de EnumExtensions.txt.
+* Sustituid el contenido del fichero "Startup.cs" por el contenido de Startup.txt.
+
+Como veis, en este paso hemos introducido muchísima lógica de negocio y multitud de ficheros nuevos: un repositorio para obtener las pizzas predefinidas, un archivo json del que sacar dichas pizzas, un diálogo nuevo para introducir toda la lógida de negocio con los distintos pasos... y todos los ficheros que hemos modificado para que este nuevo diálogo funcione.
+Ahora, probad a ejecutar el bot, e intentad pedir un par de pizzas. Si todo ha funcionado bien, el sistema os debería dejar pedir pizzas predefinidas, pidiéndonos, al final de cada una, confirmación para continuar con la siguiente.
+
+### 4.7. Pizzas personalizadas
+
+NO nos conformamos con pedir una carbonara y una barbacoa. ¡Queremos nuestras proopias pizzasa personalizadas! Así que vamos a añadir un nuevo diálogo para este menester, además de un repositorio de ingredientes y un fichero json con los ingredientes aceptados. También tendremos que cambiar algunas cosas en nuestras clases existentes para añadir este nuevo diálogo:
+
+* Dentro de la carpeta "Dialogs", cread un nuevo fillero llamado "CustomPizzaDialog.cs", y rellenadlo con el contenido del fichero "CustomPizzaDialog.txt" del paso 07 de los archivos del taller.
+* En la carpeta "Contracts/Repositories", cread un fichero llamado "IIngredientRepository.cs", y rellenadlo con el contenido del fichero "IIngredientRepository.txt".
+* Dentro de la carpeta "Repositories", cread un fichero llamado "IngredientRepository.cs", y rellenadlo con el contenido del archivo "IngredientRepository.txt".
+* Dentro de la carpeta "Files", copiad el fichero "ingredients.json" de los archivos de este paso del taller.
+* Dentro de la carpeta "Bots", sustituid el contenido del fichero "OrderPizzaBot.cs" por el del fichero "OrderPizzaBot.txt".
+* Dentro de la carpeta "Dialogs", sustituid el contenido del fichero "MainDialog.cs" por el del fichero "MainDialog.txt".
+* Dentro de la carpeta "Dialogs", sustituid el contenido del fichero "OrderPizzaDialog.cs" por el del fichero "OrderPizzaDialog.txt".
+* Dentro de la carpeta "Dialogs", sustituid el contenido del fichero "PizzaSelectionDialog.cs" por el del fichero "PizzaSelectionDialog.txt".
+* Sustituid el contenido de "Startup.cs" por el contenido del fichero "Startup.txt".
+
+Y ahora, ejecutad el bot. Veréis que cuando os pregunte por el tipo de pizza, también podréis decirle ahora que queréis una pizza personalizada, elegir los ingredientes junto al tipo de masa y al tamaño, y tendréis vuestra maravillosa pizza personalizada!
